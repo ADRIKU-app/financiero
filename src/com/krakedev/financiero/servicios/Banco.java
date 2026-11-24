@@ -4,36 +4,36 @@ import com.krakedev.financiero.entidades.Cuenta;
 import com.krakedev.financiero.entidades.Cliente;
 
 public class Banco {
-	
+
 	private int ultimoCodigo = 1000;
-	
+
 	public Banco() {
-		
+
 	}
 
 	public int getUltimoCodigo() {
-	    return ultimoCodigo;
+		return ultimoCodigo;
 	}
 
 	public void setUltimoCodigo(int ultimoCodigo) {
-	    this.ultimoCodigo = ultimoCodigo;
+		this.ultimoCodigo = ultimoCodigo;
 	}
-	
+
 	public Cuenta crearCuenta(Cliente cliente) {
 
-	    // Paso 1: Convertir ultimoCodigo a String.
+		// Paso 1: Convertir ultimoCodigo a String.
 		String codigoStr = ultimoCodigo + "";
 
-	    // Paso 2: Incrementar ultimoCodigo.
+		// Paso 2: Incrementar ultimoCodigo.
 		ultimoCodigo++;
 
-	    // Paso 3: Crear una instancia de Cuenta.
+		// Paso 3: Crear una instancia de Cuenta.
 		Cuenta cuenta = new Cuenta(codigoStr);
 
-	    // Paso 4: Asignar el cliente como propietario.
+		// Paso 4: Asignar el cliente como propietario.
 		cuenta.setPropietario(cliente);
 
-	    // Paso 5: Retornar la cuenta creada.
+		// Paso 5: Retornar la cuenta creada.
 		return cuenta;
 
 	}
