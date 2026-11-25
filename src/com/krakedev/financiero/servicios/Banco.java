@@ -57,24 +57,42 @@ public class Banco {
 		}
 
 	}
-	
+
 	public boolean retirar(double monto, Cuenta cuenta) {
-		
+
 		double saldo = cuenta.getSaldoActual();
-		
-		if(monto > 0 && monto <= saldo) {
-			
+
+		if (monto > 0 && monto <= saldo) {
+
 			double nuevoSaldo = saldo - monto;
-			
+
 			cuenta.setSaldoActual(nuevoSaldo);
-			
+
 			return true;
-			
+
 		} else {
-			
+
 			return false;
-			
+
 		}
+	}
+
+	public boolean transferir(double monto, Cuenta origen, Cuenta destino) {
+
+		boolean resultadoRetiro = retirar(monto, origen);
+
+		if (resultadoRetiro) {
+			
+			boolean resultadoDeposito = depositar(monto, destino);
+
+			return resultadoDeposito;
+
+		} else {
+
+			return false;
+
+		}
+
 	}
 
 }
