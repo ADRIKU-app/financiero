@@ -94,5 +94,32 @@ public class Banco {
 		}
 
 	}
+	
+	public boolean cobrarMantenimiento(double monto, Cuenta cuenta) {
+		
+		//El monto a cobrar debe ser > 0
+		//El saldo actual de la cuenta debe ser >= al monto que se intenta cobrar
+		//Devolver un true si se efectúa un cobro exitoso
+		
+		double saldo = cuenta.getSaldoActual();
+		
+		if(monto > 0 && monto <= saldo) {
+			
+			double nuevoSaldo = saldo - monto;
+			
+			cuenta.setSaldoActual(nuevoSaldo);
+			
+			System.out.println("Cobro exitoso");
+			
+			return true;
+			
+		} else {
+			
+			System.out.println("Cobro fallido");
+			
+			return false;
+		}
+		
+	}
 
 }
